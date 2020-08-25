@@ -14,22 +14,22 @@ app.get('/', (req, res) => {
 });
 
 app.get('/add', (req, res) => {
-    res.render('add');
+    res.sendFile(__dirname+'/index.html');
 });
 
 app.get('/sub', (req, res) => {
-    res.render('sub');
+    res.sendFile(__dirname+'/index.html');
 });
 
 app.get('/multiply', (req, res) => {
-    res.render('multiply');
+    res.sendFile(__dirname+'/index.html');
 });
 
 app.get('/div', (req, res) => {
-    res.render('div');
+    res.sendFile(__dirname+'/index.html');
 });
 
-app.post('/addBack', (req, res) => {
+app.post('/add', (req, res) => {
     let val1 = req.body.val1;
     let val2 = req.body.val2;
     let total = (val1 - 0) + (val2 - 0);
@@ -40,7 +40,7 @@ app.post('/addBack', (req, res) => {
         res.send('success' + "<br>" + "the sum of given two number is: " + total);
     };
 });
-app.post('/subBack', (req, res) => {
+app.post('/sub', (req, res) => {
     let val1 = req.body.val1;
     let val2 = req.body.val2;
     let total = (val1 - 0) - (val2 - 0);
@@ -51,7 +51,7 @@ app.post('/subBack', (req, res) => {
         res.send('success' + "<br>" + "the sum of given two number is: " + total);
     };
 });
-app.post('/multiplyBack', (req, res) => {
+app.post('/multiply', (req, res) => {
     let val1 = req.body.val1;
     let val2 = req.body.val2;
     let total = (val1 - 0) * (val2 - 0);
@@ -62,7 +62,7 @@ app.post('/multiplyBack', (req, res) => {
         res.send('success' + "<br>" + "the sum of given two number is: " + total);
     };
 });
-app.post('/divBack', (req, res) => {
+app.post('/div', (req, res) => {
     let val1 = req.body.val1;
     let val2 = req.body.val2;
     let total = (val1 - 0) / (val2 - 0);
@@ -77,39 +77,6 @@ app.post('/divBack', (req, res) => {
     };
 });
 
-// app.get('/:operator/:num1/:num2', function(req,res){
-
-// 	var operator = req.body.operator;
-// 	var num1 = parseInt(req.body.num1);
-// 	var num2 = parseInt(req.body.num2);
-// 	var result;
-
-// 	switch(operator){
-// 		case "add":
-//         result = add(num1, num2);
-//         console.log(result);
-// 		break;
-
-// 		case "sub":
-// 		result = sub(num1, num2);
-// 		break;
-
-// 		case "multiply":
-// 		result = multiply(num1, num2);
-// 		break;
-
-// 		case "div":
-// 		result = div(num1, num2);
-// 		break;
-
-// 		default:
-// 		result = "Sorry, please enter a valid operator!"
-//     }
-// });
-
-// function add(num1, num2){
-//     return  num1+num2;
-// }
 app.listen(3000, (req, res) => {
     console.log('server is running');
 });
